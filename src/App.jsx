@@ -368,34 +368,39 @@ function Projects() {
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.1 })
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured online shopping platform with cart, checkout, and payment integration.',
+      title: 'OneLine Micro Journaling Website',
+      description: 'A minimalist micro-journaling platform that helps users capture daily thoughts in one line, promoting consistent reflection and mental clarity.',
       features: [
-        'User authentication with JWT and OAuth',
-        'Real-time inventory management',
-        'Stripe payment integration'
+        'Simple one-line daily journal entries',
+        'Clean and intuitive user interface',
+        'Personal thought tracking and history'
       ],
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      tags: ['React', 'Next.js'],
+      link: 'https://oneline-five.vercel.app',
+      image: '/personal-project1.PNG'
     },
     {
-      title: 'Task Management App',
-      description: 'A collaborative project management tool with real-time updates and team features.',
+      title: 'Barangay Information and Services System',
+      description: 'A comprehensive barangay management system with integrated complaint and request analytics for efficient community service delivery.',
       features: [
-        'Drag-and-drop task organization',
-        'Real-time collaboration with Socket.IO',
-        'Team workspaces and permissions'
+        'Citizen information management',
+        'Complaint and request tracking with analytics',
+        'Service request processing and monitoring'
       ],
-      tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.IO'],
+      tags: ['Flutter', 'Node.js', 'MongoDB'],
+      link: 'https://brgysanjose1.vercel.app',
+      image: '/baranggay project.PNG'
     },
     {
-      title: 'Portfolio Builder',
-      description: 'A tool that helps developers create beautiful portfolio websites with ease.',
+      title: 'Student Daily Task Manager',
+      description: 'An Android mobile application designed to help students organize and manage their daily academic tasks and assignments efficiently.',
       features: [
-        'Customizable templates and themes',
-        'Markdown content support',
-        'One-click deployment to Vercel'
+        'Task creation and scheduling',
+        'Daily task reminders and notifications',
+        'Progress tracking and completion status'
       ],
-      tags: ['React', 'Tailwind CSS', 'Node.js', 'Vercel'],
+      tags: ['Android Studio', 'Kotlin', 'Java', 'MySQL'],
+      image: '/STM project.png'
     }
   ]
 
@@ -460,16 +465,19 @@ function Projects() {
                   ))}
                 </div>
                 <div className="project-links">
-                  <a href="#" className="btn">
-                    <GitHubIcon /> GitHub
-                  </a>
-                  <a href="#" className="btn">
-                    Live Site <ExternalLinkIcon />
-                  </a>
+                  {project.link && (
+                    <a href={project.link} className="btn" target="_blank" rel="noopener noreferrer">
+                      Live Site <ExternalLinkIcon />
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="project-preview">
-                <span className="project-preview-placeholder">Project Preview</span>
+                {project.image ? (
+                  <img src={project.image} alt={project.title} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+                ) : (
+                  <span className="project-preview-placeholder">Project Preview</span>
+                )}
               </div>
             </div>
           ))}
