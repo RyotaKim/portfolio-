@@ -165,10 +165,10 @@ function Navbar() {
           <a href="#contact" className="nav-link" onClick={(e) => scrollToSection(e, 'contact')} aria-label="Contact">
             <MailIcon />
           </a>
-          <a href="https://linkedin.com" className="nav-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/kim-benedict-sumilang/" className="nav-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <LinkedInIcon />
           </a>
-          <a href="https://github.com" className="nav-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/RyotaKim" className="nav-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <GitHubIcon />
           </a>
         </div>
@@ -201,10 +201,7 @@ function Hero() {
       </p>
       <div className={`hero-buttons fade-in-up ${loaded ? 'visible' : ''}`} style={{animationDelay: '0.8s'}}>
         <a href="#contact" className="btn btn-primary" onClick={(e) => scrollToSection(e, 'contact')}>
-          👋 Let's Connect
-        </a>
-        <a href="#" className="btn">
-          My Resume ↓
+           Let's Connect
         </a>
       </div>
     </section>
@@ -313,28 +310,39 @@ function Certificates() {
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.2 })
   const certificates = [
     {
-      title: 'AWS Certified Developer',
-      issuer: 'Amazon Web Services',
+      title: 'Microsoft Word Certification',
+      issuer: 'Microsoft',
       date: '2024',
-      icon: '☁️'
+      icon: '📄',
+      image: '/ms word ceritification.PNG'
     },
     {
-      title: 'Meta Front-End Developer',
-      issuer: 'Meta (Coursera)',
-      date: '2023',
-      icon: '⚛️'
+      title: 'Microsoft PowerPoint Certification',
+      issuer: 'Microsoft',
+      date: '2024',
+      icon: '📊',
+      image: '/powerpoint certification.PNG'
     },
     {
-      title: 'Google UX Design Certificate',
-      issuer: 'Google (Coursera)',
-      date: '2023',
-      icon: '🎨'
+      title: 'Java Programming Certification',
+      issuer: 'Oracle',
+      date: '2024',
+      icon: '☕',
+      image: '/java.jpg'
     },
     {
-      title: 'MongoDB Developer Certification',
-      issuer: 'MongoDB University',
-      date: '2023',
-      icon: '🍃'
+      title: 'Database Management Certification',
+      issuer: 'Database Institute',
+      date: '2024',
+      icon: '🗄️',
+      image: '/database.jpg'
+    },
+    {
+      title: 'Hack4Gov Regional Qualifier',
+      issuer: 'DICT Region IVA Calabarzon & CyberSecurity Bureau',
+      date: '2024',
+      icon: '🏆',
+      image: '/h4g.PNG'
     }
   ]
   const [gridRef, visibleItems] = useStaggerReveal(certificates.length, 150)
@@ -351,7 +359,13 @@ function Certificates() {
               key={index} 
               className={`certificate-card fade-in-up ${visibleItems.includes(index) ? 'visible' : ''}`}
             >
-              <div className="certificate-icon">{cert.icon}</div>
+              {cert.image ? (
+                <div className="certificate-image">
+                  <img src={cert.image} alt={cert.title} style={{width: '100%', height: 'auto', borderRadius: 'var(--radius-md)'}} />
+                </div>
+              ) : (
+                <div className="certificate-icon">{cert.icon}</div>
+              )}
               <h3>{cert.title}</h3>
               <p>{cert.issuer}</p>
               <span className="certificate-date">{cert.date}</span>
@@ -499,10 +513,10 @@ function Contact() {
         
         <div className={`contact-content fade-in-up ${isVisible ? 'visible' : ''}`} style={{animationDelay: '0.2s'}}>
           <div className="contact-buttons">
-            <a href="mailto:kim.sumilang@email.com" className="contact-btn">
-              <MailIcon /> kim.sumilang@email.com
+            <a href="mailto:kimsumilang30@gmail.com" className="contact-btn">
+              <MailIcon /> kimsumilang30@gmail.com
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="contact-btn">
+            <a href="https://www.linkedin.com/in/kim-benedict-sumilang/" target="_blank" rel="noopener noreferrer" className="contact-btn">
               <LinkedInIcon /> LinkedIn
             </a>
           </div>
@@ -516,10 +530,10 @@ function Contact() {
           </form>
           
           <div className="social-links">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+            <a href="https://github.com/RyotaKim" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
               <GitHubIcon />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/kim-benedict-sumilang/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
               <LinkedInIcon />
             </a>
           </div>
@@ -539,7 +553,7 @@ function Footer() {
       <div className={`container footer-content fade-in-up ${isVisible ? 'visible' : ''}`}>
         <p>© {currentYear} Kim Sumilang. All rights reserved.</p>
         <a href="#" className="footer-link">
-          Let's Connect 👋
+          Let's Connect 
         </a>
       </div>
     </footer>
