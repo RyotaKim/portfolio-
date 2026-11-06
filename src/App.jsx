@@ -343,6 +343,55 @@ function Certificates() {
       date: '2024',
       icon: '🏆',
       image: '/h4g.PNG'
+    },
+    {
+      title: 'Hack4Gov 5 Regional Qualifying Round',
+      issuer: 'DICT Cybersecurity Bureau & CERT-PH',
+      date: '2026',
+      icon: '🏆',
+      image: '/h4g2026.png'
+    },
+    {
+      title: 'Start Writing Prompts like a Pro',
+      issuer: 'Google / Coursera',
+      date: '2026',
+      icon: '✍️',
+      image: '/start-writing-pompts-like-a-pro.png'
+    },
+    {
+      title: 'Use AI as a Creative and Expert Partner',
+      issuer: 'Google / Coursera',
+      date: '2026',
+      icon: '✨',
+      image: '/use-ai-as-a-creative-partner.png'
+    },
+    {
+      title: 'Speed Up Data Analysis and Presentation Building',
+      issuer: 'Google / Coursera',
+      date: '2026',
+      icon: '📈',
+      image: '/speedup-data-analysis.png'
+    },
+    {
+      title: 'AI-Assisted Coding for Developers',
+      issuer: 'DataCamp',
+      date: '2026',
+      icon: '💻',
+      image: '/Ai-assisted-coding-for-dev.png'
+    },
+    {
+      title: 'Software Development with GitHub Copilot',
+      issuer: 'DataCamp',
+      date: '2026',
+      icon: '🚀',
+      image: '/software-dev-with-github-copilot.png'
+    },
+    {
+      title: 'AWS Concepts',
+      issuer: 'DataCamp',
+      date: '2026',
+      icon: '☁️',
+      image: '/awsconcept.png'
     }
   ]
   const [gridRef, visibleItems] = useStaggerReveal(certificates.length, 150)
@@ -415,6 +464,28 @@ function Projects() {
       ],
       tags: ['Android Studio', 'Kotlin', 'Java', 'MySQL'],
       image: '/STM project.png'
+    },
+    {
+      title: 'Aegis-Dry: Weather-Reactive IoT Laundry Docking Station',
+      description: 'An edge-powered IoT laundry station that detects sudden rain and automatically retracts clothes into a weatherproof enclosure.',
+      features: [
+        'Local rain detection with instant response',
+        'ESP32-controlled stepper motor retraction',
+        'Dual-voltage power and hardware safeguards'
+      ],
+      tags: ['ESP32', 'C/C++', 'Arduino', 'IoT'],
+      image: '/IOT.jpg'
+    },
+    {
+      title: 'SILONG: Smart IoT Fish Drying Station',
+      description: 'An energy-sustainable drying station combining weather forecasting, local sensors, and automated rack protection for coastal fisheries.',
+      features: [
+        'Cloud weather prediction with local failsafe',
+        'Mobile monitoring and manual controls',
+        'Solar-powered automation and telemetry'
+      ],
+      tags: ['ESP32', 'Flutter', 'Supabase', 'IoT'],
+      video: '/Capstone.mp4'
     }
   ]
 
@@ -487,7 +558,17 @@ function Projects() {
                 </div>
               </div>
               <div className="project-preview">
-                {project.image ? (
+                {project.video ? (
+                  <video
+                    src={project.video}
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    aria-label={`${project.title} project video`}
+                    style={{width: '100%', height: '100%', objectFit: 'cover'}}
+                  />
+                ) : project.image ? (
                   <img src={project.image} alt={project.title} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
                 ) : (
                   <span className="project-preview-placeholder">Project Preview</span>
